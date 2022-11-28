@@ -44,12 +44,14 @@ dados(deisi, empreendedorismo, 8.5, 90, nenhuma).
 dados(magaiver, empreendedorismo, 9.0, 90, bestacademy).
 dados(arnold, empreendedorismo, 8.0, 100, morestudy
 ).
-dados(will, empreendedorismo, 9.0, 75.0, nenhuma).
+dados(will, empreendedorismo, 9.0, 75, nenhuma).
 
 % regras
 
-aprovado(X,Y):- homem(X), dados(X, materia(Y), _Z>=6.0, _W>=75.0, nenhuma).
+aprovado(X,Y):- homem(X), dados(X, Y, Z, W, B),((B = nenhuma, Z >=6.0, W >= 75); (B = morestudy, Z >=7.0, W >= 80); (B = bestacademy, Z>=8.0, W>=90)).
 
+aprovada(X,Y):- mulher(X), dados(X, Y, Z, W, B),((B = nenhuma, Z >=6.0, W >= 75); (B = morestudy, Z >=7.0, W >= 80); (B = bestacademy, Z>=8.0, W>=90)).
 
+                                             
 
 
