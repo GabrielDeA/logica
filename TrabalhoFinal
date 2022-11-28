@@ -1,0 +1,55 @@
+% fatos
+
+homem(magaiver).
+homem(arnold).
+homem(will).
+
+mulher(katy).
+mulher(patricia).
+mulher(deisi).
+
+bolsa(nenhuma).
+bolsa(morestudy).
+bolsa(bestacademy).
+
+materia(logica).
+materia(programacao).
+materia(estatistica).
+materia(empreendedorismo).
+
+
+
+
+dados(katy, logica, 6.5, 80, morestudy).
+dados(patricia, logica, 10.0, 100, bestacademy).
+dados(deisi, logica, 9.5, 100, nenhuma).
+dados(magaiver, logica, 8.0, 80, bestacademy).
+dados(arnold, logica, 7.0, 100, morestudy).
+dados(will, logica, 5.0, 75, nenhuma).
+dados(katy, programacao, 7.5, 90, morestudy).
+dados(patricia, programacao, 10.0, 100, bestacademy).
+dados(deisi, programacao, 10.0, 100, nenhuma).
+dados(magaiver, programacao, 8.0, 90, bestacademy).
+dados(arnold, programacao, 7.0, 100, morestudy).
+dados(will, programacao, 3.0, 80, nenhuma).
+dados(katy, estatistica, 7.0, 100, morestudy).
+dados(patricia, estatistica, 10.0, 90, bestacademy).
+dados(deisi, estatistica, 9.0, 100, nenhuma).
+dados(magaiver, estatistica, 7.0, 90, bestacademy).
+dados(arnold, estatistica, 7.5, 100, morestudy).
+dados(will, estatistica, 6.0, 80, nenhuma).
+dados(katy, empreendedorismo, 6.0, 85, morestudy).
+dados(patricia, empreendedorismo, 9.5, 100, bestacademy).
+dados(deisi, empreendedorismo, 8.5, 90, nenhuma).
+dados(magaiver, empreendedorismo, 9.0, 90, bestacademy).
+dados(arnold, empreendedorismo, 8.0, 100, morestudy
+).
+dados(will, empreendedorismo, 9.0, 75.0, nenhuma).
+
+% regras
+
+aprovado(X,Y):- homem(X), dados(X, materia(Y), _Z>=6.0, _W>=75.0, nenhuma).
+
+
+
+
