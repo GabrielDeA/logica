@@ -1,0 +1,7 @@
+C) 
+// apertar ; para listar resultados
+1)aprovado(X, logica). 
+2)aprovada(X, estatistica).
+3)perdeHomem(X,_,_,_,B). and perdeMulher(X,_,_,_,B).
+4) notificacaoHomem(X,_,_,_,B). and  notificacaoMulher(X,_,_,_,B).
+5) not(perdeHomem(X,_,_,_,B)).
