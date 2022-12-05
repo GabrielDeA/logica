@@ -1,0 +1,78 @@
+% fatos
+
+homem(magaiver).
+homem(arnold).
+homem(will).
+
+mulher(katy).
+mulher(patricia).
+mulher(deisi).
+
+bolsa(nenhuma).
+bolsa(morestudy).
+bolsa(bestacademy).
+
+materia(logica).
+materia(programacao).
+materia(estatistica).
+materia(empreendedorismo).
+
+
+
+
+dados(katy, logica, 6.5, 80, morestudy).
+dados(patricia, logica, 10.0, 100, bestacademy).
+dados(deisi, logica, 9.5, 100, nenhuma).
+dados(magaiver, logica, 8.0, 80, bestacademy).
+dados(arnold, logica, 7.0, 100, morestudy).
+dados(will, logica, 5.0, 75, nenhuma).
+dados(katy, programacao, 7.5, 90, morestudy).
+dados(patricia, programacao, 10.0, 100, bestacademy).
+dados(deisi, programacao, 10.0, 100, nenhuma).
+dados(magaiver, programacao, 8.0, 90, bestacademy).
+dados(arnold, programacao, 7.0, 100, morestudy).
+dados(will, programacao, 3.0, 80, nenhuma).
+dados(katy, estatistica, 7.0, 100, morestudy).
+dados(patricia, estatistica, 10.0, 90, bestacademy).
+dados(deisi, estatistica, 9.0, 100, nenhuma).
+dados(magaiver, estatistica, 7.0, 90, bestacademy).
+dados(arnold, estatistica, 7.5, 100, morestudy).
+dados(will, estatistica, 6.0, 80, nenhuma).
+dados(katy, empreendedorismo, 6.0, 85, morestudy).
+dados(patricia, empreendedorismo, 9.5, 100, bestacademy).
+dados(deisi, empreendedorismo, 8.5, 90, nenhuma).
+dados(magaiver, empreendedorismo, 9.0, 90, bestacademy).
+dados(arnold, empreendedorismo, 8.0, 100, morestudy
+).
+dados(will, empreendedorismo, 9.0, 75, nenhuma).
+
+% regras
+%
+% R1 e R2
+
+aprovado(X,Y):- homem(X), dados(X, Y, M, F, B),((B = nenhuma, M >=6.0, F >= 75); (B = morestudy, M >=7.0, F >= 80); (B = bestacademy, M>=8.0, F>=90)).
+
+aprovada(X,Y):- mulher(X), dados(X, Y, M, F, B),((B = nenhuma, M >=6.0, F >= 75); (B = morestudy, M >=7.0, F >= 80); (B = bestacademy, M>=8.0, F>=90)).
+
+% R3 e R4
+perdeHomem(X, Y, M ,F,B):-  dados(X, Y, M ,F,B), homem(X), ( (((B = morestudy,M <7.0; F < 80, Y = logica), (B = morestudy,M <7.0; F < 80, Y = programacao)); ((B = morestudy,M <7.0; F < 80, Y = logica), (B = morestudy,M <7.0; F < 80, Y = estatistica)); ((B = morestudy,M <7.0; F < 80, Y = logica), (B = morestudy,M <7.0; F < 80, Y = empreendedorismo)); ((B = morestudy,M <7.0; F < 80, Y = programacao), (B = morestudy,M <7.0; F < 80, Y = estatistica)); ((B = morestudy,M <7.0; F < 80, Y = programacao), (B = morestudy,M <7.0; F < 80, Y = empreendedorismo)); ((B = morestudy,M <7.0; F < 80, Y = estatistica), (B = morestudy,M <7.0; F < 80, Y = empreendedorismo)));   (((B = bestacademy, M < 8.0; F<90, Y = logica), ((B = bestacademy, M < 8.0; F<90, Y = programacao));((B = bestacademy, M < 8.0; F<90, Y = logica)), ((B = bestacademy, M < 8.0; F<90, Y = estatistica)); ((B = bestacademy, M < 8.0; F<90, Y = logica)), ((B = bestacademy, M < 8.0; F<90, Y = empreendedorismo)); ((B = bestacademy, M < 8.0; F<90, Y = programacao)), ((B = bestacademy, M < 8.0; F<90, Y = estatistica)); ((B = bestacademy, M < 8.0; F<90, Y = programacao)), ((B = bestacademy, M < 8.0; F<90, Y = empreendedorismo)); ((B = bestacademy, M < 8.0; F<90, Y = estatistica)), ((B = bestacademy, M < 8.0; F<90, Y = empreendedorismo))) ) ).
+
+perdeMulher(X, Y, M ,F,B):-  dados(X, Y, M ,F,B), mulher(X), ( (((B = morestudy,M <7.0; F < 80, Y = logica), (B = morestudy,M <7.0; F < 80, Y = programacao)); ((B = morestudy,M <7.0; F < 80, Y = logica), (B = morestudy,M <7.0; F < 80, Y = estatistica)); ((B = morestudy,M <7.0; F < 80, Y = logica), (B = morestudy,M <7.0; F < 80, Y = empreendedorismo)); ((B = morestudy,M <7.0; F < 80, Y = programacao), (B = morestudy,M <7.0; F < 80, Y = estatistica)); ((B = morestudy,M <7.0; F < 80, Y = programacao), (B = morestudy,M <7.0; F < 80, Y = empreendedorismo)); ((B = morestudy,M <7.0; F < 80, Y = estatistica), (B = morestudy,M <7.0; F < 80, Y = empreendedorismo)));   (((B = bestacademy, M < 8.0; F<90, Y = logica), ((B = bestacademy, M < 8.0; F<90, Y = programacao));((B = bestacademy, M < 8.0; F<90, Y = logica)), ((B = bestacademy, M < 8.0; F<90, Y = estatistica)); ((B = bestacademy, M < 8.0; F<90, Y = logica)), ((B = bestacademy, M < 8.0; F<90, Y = empreendedorismo)); ((B = bestacademy, M < 8.0; F<90, Y = programacao)), ((B = bestacademy, M < 8.0; F<90, Y = estatistica)); ((B = bestacademy, M < 8.0; F<90, Y = programacao)), ((B = bestacademy, M < 8.0; F<90, Y = empreendedorismo)); ((B = bestacademy, M < 8.0; F<90, Y = estatistica)), ((B = bestacademy, M < 8.0; F<90, Y = empreendedorismo))) ) ).
+
+%R5 e R6
+
+notificacaoHomem(X, Y, M, F, B):- dados(X,Y, M, F, B), homem(X),( (B = morestudy,M <7.0; F < 80, Y = logica) ; (B = morestudy,M <7.0; F < 80, Y = programacao); (B = morestudy,M <7.0; F < 80, Y = estatistica); (B = morestudy,M <7.0; F < 80, Y = empreendedorismo); (B = bestacademy, M < 8.0; F<90, Y = logica); (B = bestacademy, M < 8.0; F<90, Y = programacao); (B = bestacademy, M < 8.0; F<90, Y = estatistica); (B = bestacademy, M < 8.0; F<90, Y = empreendedorismo)), B \== nenhuma.
+
+notificacaoMulher(X, Y, M, F, B):- dados(X,Y, M, F, B), mulher(X),( (B = morestudy,M <7.0; F < 80, Y = logica) ; (B = morestudy,M <7.0; F < 80, Y = programacao); (B = morestudy,M <7.0; F < 80, Y = estatistica); (B = morestudy,M <7.0; F < 80, Y = empreendedorismo); (B = bestacademy, M < 8.0; F<90, Y = logica); (B = bestacademy, M < 8.0; F<90, Y = programacao); (B = bestacademy, M < 8.0; F<90, Y = estatistica); (B = bestacademy, M < 8.0; F<90, Y = empreendedorismo)), B \== nenhuma.
+
+%R7 e R8
+semHomem(X, Y, M, F, B) :-  dados(X,Y, M, F, B), homem(X), B=nenhuma.
+
+semMulher(X, Y, M, F, B) :-  dados(X,Y, M, F, B), mulher(X), B=nenhuma.
+
+naoPerdeHomem(X,Y,M,F,B) :- not(perdeHomem(X,Y,M,F,B)).
+
+
+
+
+
